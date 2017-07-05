@@ -12,6 +12,8 @@ Below is a list of examples that I have ported so far:
 * Chapter 5
     * [Labelling properties - interleaving](src/chapter5/Interleaving) (pages 51-52)
         * (_original example code_ can be found within [here](http://booksites.artima.com/scalacheck/examples/html/ch05.html#sec1))
+    * [Prop.throws](src/chapter5/throwsTests.js) (page 59)
+        * (_original example code_ can be found within [here](http://booksites.artima.com/scalacheck/examples/html/ch05.html#sec2))
 
 ## Links
 
