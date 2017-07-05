@@ -1,19 +1,16 @@
-// import jsc from 'jsverify';
-// import { interleave, interleaveWithBug } from './interleaving';
+import { expect } from 'chai';
+import { check, gen } from 'mocha-testcheck';
+import { interleave, interleaveWithBug } from './interleaving';
 
-// describe('interleave', () => {
+describe('interleave', () => {
 
-//     it('property test', () => {
-//         return jsc.assert(jsc.forall("[nat]", "[nat]", (xs, ys) => {
-//             const res = interleave(xs, ys);
-//             return res.length === xs.length + ys.length;
-//         }));
-//     });
+    it('propInterleave', check(gen.array(gen.int), gen.array(gen.int), (xs, ys) => {
+        const res = interleave(xs, ys);
+        expect(res.length).to.equal(xs.length + ys.length);
+    }));
 
-//     it('property test (with deliberate bug)', () => {
-//         return jsc.assert(jsc.forall("[nat]", "[nat]", (xs, ys) => {
-//             const res = interleaveWithBug(xs, ys);
-//             return res.length === xs.length + ys.length;
-//         }));
-//     });
-// });
+    it('propInterleave (with deliberate bug)', check(gen.array(gen.int), gen.array(gen.int), (xs, ys) => {
+        const res = interleaveWithBug(xs, ys);
+        expect(res.length).to.equal(xs.length + ys.length);
+    }));
+});
